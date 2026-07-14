@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        button{
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            height: 35px;
+            width: 200px;
+
+        }
+        button:hover{
+            background-color: black;
+        }
+
+        #ultimoitem{
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎁Sorteio de caixa premiada🎁</h1>
+    <button onclick="abrircaixa()">caixa</button>
+    <button onclick="mostrarinventario()">Mostar itens</button>
+    
+     
+
+    <h2 id="ultimoitem"></h2>
+    <ul id="colecao" ></ul>
+
+    <script>
+        let itensPossiveis = [
+            "🪵Madeira", 
+            "⚔️Espada",
+            "🪓Machado",
+            "💎Diamante",
+            "🍫Chocolate",
+            "🎁Presente misterioso",
+            "⭐Estrela",
+            "🏆Trofeu"
+        ]
+        // vetor que armazena os itens obtidos pelo jogador
+        let inventario = []
+
+        function abrircaixa(){
+            // sorteia um número entre 0 e 7
+            let sorteado = Math.floor(Math.random() * itensPossiveis.length);
+            
+            //pegar o item da posiçao sorteada
+            let item = itensPossiveis[sorteado]
+
+            // Adiciona o item no inventário
+            inventario.push(item); 
+
+            // Mostrar o item na tela
+            document.getElementById("ultimoitem").innerHTML = "Você recebeu: " + item;
+        }
+
+       function mostrarinventario(){
+    let lista = document.getElementById("colecao");
+
+    // Limpa a lista
+    lista.innerHTML = "";
+
+    // Percorre o inventário
+    for(let i = 0; i < inventario.length; i++){
+        lista.innerHTML +=
+            "<li>" + (i + 1) + "° item: " + inventario[i] + "</li>";
+    }
+}
+    </script>
+</body>
+</html>
