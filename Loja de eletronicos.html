@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOJA DO GAUCHO</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: cyan;
+}
+
+header{
+    background:#004c66;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+#produtos{
+    width:90%;
+    max-width:1000px;
+    margin:30px auto;
+}
+
+.card{
+    background:white;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.02);
+}
+
+.card img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.info{
+    flex:1;
+}
+
+.info h2{
+    color:#004c66;
+    margin-bottom:10px;
+}
+
+.info p{
+    margin-bottom:10px;
+    color:#333;
+}
+
+.preco{
+    color:green;
+    font-size:24px;
+    font-weight:bold;
+}
+
+button{
+    background:#0077cc;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#004c99;
+}
+
+footer{
+    margin-top:40px;
+    background:#004c66;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>🖥️ Tech Store</h1>
+    <p>Os melhores eletrônicos com os melhores preços!</p>
+</header>
+
+<div id="produtos"></div>
+
+<footer>
+    © 2026 Tech Store - Todos os direitos reservados.
+</footer>
+
+<script>
+
+let produtos = [
+
+{
+    nome:"Notebok ASUS VivoBook S14",
+    preco:5499.90,
+    descricao:"Notebook Intel Core i7, 16GB RAM, SSD 512GB e placa de vídeo dedicada.",
+    imagem:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500"
+},
+
+{
+    nome:"Motorol M35",
+    preco:2499.90,
+    descricao:"Tela AMOLED 6.7'', câmera de 108MP e bateria de longa duração.",
+    imagem:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500"
+},
+
+{
+    nome:"Headset Gamer",
+    preco:399.90,
+    descricao:"Som estéreo, microfone de alta qualidade e iluminação RGB.",
+    imagem:"https://m.media-amazon.com/images/I/61pvhJpLRRL._AC_UF894,1000_QL80_.jpg"
+},
+
+{
+    nome:"Monitor LG UltraGear 24GS60F-B",
+    preco:1499.90,
+    descricao:"Monitor 27'' Full HD, 165Hz e tempo de resposta de 1ms.",
+    imagem:"https://files.tecnoblog.net/wp-content/uploads/2023/07/lg-monitor-ultragear-curvo-1060x704.webp"
+}
+
+];
+
+function comprar(){
+    alert("⚠️ ATENÇÃO: ESTOQUE ZERADO NO MOMENTO");
+}
+
+function listarProdutos(){
+
+    let area = document.getElementById("produtos");
+    area.innerHTML = "";
+
+    for(let i = 0; i < produtos.length; i++){
+
+        area.innerHTML += `
+        <div class="card">
+
+            <img src="${produtos[i].imagem}" alt="${produtos[i].nome}">
+
+            <div class="info">
+
+                <h2>${produtos[i].nome}</h2>
+
+                <p>${produtos[i].descricao}</p>
+
+                <p class="preco">
+                    R$ ${produtos[i].preco.toFixed(2).replace(".",",")}
+                </p>
+
+                <button onclick="comprar()">Comprar</button>
+
+            </div>
+
+        </div>
+        `;
+    }
+}
+
+listarProdutos();
+
+</script>
+
+</body>
+</html>
